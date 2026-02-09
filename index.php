@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f7f6;
+            background-color: #acc047;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,7 +20,7 @@
             border: none;
         }
         .hasil-box {
-            background: #e9ecef;
+            background: #14a72f;
             padding: 15px;
             border-radius: 8px;
             font-size: 1.5rem;
@@ -41,49 +41,49 @@
         <form action="" method="post">
             <div class="mb-3">
                 <label class="form-label">Angka Pertama</label>
-                <input class="form-control" type="number" name="m1" required value="<?php echo $_POST['m1'] ?? ''; ?>">
+                <input class="form-control" type="number" name="a1" required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Operasi</label>
-                <select class="form-select" name="apa">
-                    <option value="+" <?php echo (isset($_POST['apa']) && $_POST['apa'] == '+') ? 'selected' : ''; ?>> Tambah (+)</option>
-                    <option value="-" <?php echo (isset($_POST['apa']) && $_POST['apa'] == '-') ? 'selected' : ''; ?>> Kurang (-)</option>
-                    <option value="*" <?php echo (isset($_POST['apa']) && $_POST['apa'] == '*') ? 'selected' : ''; ?>> Kali (×)</option>
-                    <option value="/" <?php echo (isset($_POST['apa']) && $_POST['apa'] == '/') ? 'selected' : ''; ?>> Bagi (÷)</option>
+                <select class="form-select" name="op">
+                    <option value="+"> Tambah (+)</option>
+                    <option value="-"> Kurang (-)</option>
+                    <option value="*"> Kali (×)</option>
+                    <option value="/"> Bagi (÷)</option>
                 </select>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Angka Kedua</label>
-                <input class="form-control" type="number" name="m2" required value="<?php echo $_POST['m2'] ?? ''; ?>">
+                <input class="form-control" type="number" name="a2" required>
             </div>
 
             <button class="btn btn-primary w-100 py-2" name="hasil">Hitung Sekarang</button>
         </form>
 
         <?php
-        $adalah = "";
+        $hsl = "";
         if(isset($_POST['hasil'])){
-            $pp = $_POST['m1'];
-            $al = $_POST['apa'];
-            $wp = $_POST['m2'];
+            $a1 = $_POST['a1'];
+            $op = $_POST['op'];
+            $a2 = $_POST['a2'];
 
-            if($al == '+') { $adalah = $pp + $wp; }
-            elseif($al == '-') { $adalah = $pp - $wp; }
-            elseif($al == '*') { $adalah = $pp * $wp; }
-            elseif($al == '/') {
-                if($wp == 0) {
-                    $adalah = "tidak bisa dibagi 0";
+            if($op == '+') { $hsl = $a1 + $a2; }
+            elseif($op == '-') { $hsl = $a1 - $a2; }
+            elseif($op == '*') { $hsl = $a1 * $a2; }
+            elseif($op == '/') {
+                if($a2 == 0) {
+                    $hsl = "tidak bisa dibagi 0";
                 } else {
-                    $adalah = $pp / $wp;
+                    $hsl = $a1 / $a2;
                 }
             }
         }
         ?>
 
         <div class="hasil-box">
-            <?php echo $adalah !== "" ? $adalah : "0"; ?>
+            <?php echo $hsl !== "" ? $hsl : "0"; ?>
         </div>
     </div>
 </div>
