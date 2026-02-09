@@ -74,7 +74,7 @@
             elseif($al == '*') { $adalah = $pp * $wp; }
             elseif($al == '/') {
                 if($wp == 0) {
-                    $adalah = "kocak";
+                    $adalah = "tidak bisa dibagi 0";
                 } else {
                     $adalah = $pp / $wp;
                 }
@@ -89,4 +89,5 @@
 </div>
 
 </body>
+
 </html>
